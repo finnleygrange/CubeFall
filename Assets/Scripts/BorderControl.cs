@@ -8,7 +8,6 @@ public class BorderControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -16,10 +15,12 @@ public class BorderControl : MonoBehaviour
     {
         
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
+            Debug.Log("AH");
             if(this.tag == "border1")
             {
                 player.transform.position = spawn2.transform.position;

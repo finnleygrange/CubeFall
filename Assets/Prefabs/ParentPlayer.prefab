@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8292301745101600526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.95, y: 1.01, z: -5.31}
+  m_LocalPosition: {x: 24.15, y: -6.5702543, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6821d0b51cc5e45888e31ddb8db7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 357461537550568023}
+  speed: 5
+  jumpForce: 5
   jumpSpin: {fileID: 519204441902841635}
 --- !u!65 &4926166743837650225
 BoxCollider:
