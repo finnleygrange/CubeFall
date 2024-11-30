@@ -19,6 +19,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Move();
+        Jump();
+    }
+
+    private void Move()
+    {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(Vector3.left * speed * Time.deltaTime);
@@ -28,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
-
-        Jump();
     }
 
     private void Jump()
