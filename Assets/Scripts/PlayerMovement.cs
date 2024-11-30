@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public Rigidbody rb;
-    float speed = 5f;
-    float jumpForce = 5f;
+    Rigidbody rb;
+    public float speed = 5f;
+    public float jumpForce = 5f;
     bool isGrounded = false;
     public Animator jumpSpin;
    
