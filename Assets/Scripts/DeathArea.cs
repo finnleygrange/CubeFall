@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathArea : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class DeathArea : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.SetActive(false);
+            SceneManager.LoadScene(0);
         }
     }
 }
