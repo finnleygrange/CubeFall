@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    Rigidbody rb;
+    public Rigidbody rb;
     float speed = 5f;
     float jumpForce = 5f;
     bool isGrounded = false;
+    public Animator jumpSpin;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -40,8 +42,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            jumpSpin = GetComponentInChildren<Animator>();
+            jumpSpin.Play("Jump");
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            
         }
     }
 
@@ -50,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            jumpSpin.Rebind();
+            jumpSpin.Update(0f);
         }
     }
 }

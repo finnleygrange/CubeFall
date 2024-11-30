@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7655668036301419176}
   - component: {fileID: 6072311270477478823}
   - component: {fileID: 856385602343425613}
-  - component: {fileID: 9205114268936080123}
+  - component: {fileID: 1667262579475305704}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6821d0b51cc5e45888e31ddb8db7f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &9205114268936080123
+  jumpSpin: {fileID: 1667262579475305704}
+--- !u!95 &1667262579475305704
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -155,11 +156,11 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7527238065040870121}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 32b25df177e3d6d4b874229774e6183f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
