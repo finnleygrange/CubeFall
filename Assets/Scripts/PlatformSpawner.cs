@@ -5,14 +5,14 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour
 {
     [SerializeField] GameObject spawner;
-    [SerializeField] GameObject spawnerPrefab;
+    [SerializeField] GameObject[] platformPrefabs;  // Array of platform prefabs
     [SerializeField] int offset = 10;
     [SerializeField] float minSpawnTime = 0.25f;
     [SerializeField] float maxSpawnTime = 1f;
 
     void Start()
     {
-        StartCoroutine(Spawn(spawnerPrefab));
+        StartCoroutine(Spawn());
     }
 
     void Update()
@@ -20,7 +20,7 @@ public class PlatformSpawner : MonoBehaviour
 
     }
 
-    public IEnumerator Spawn(GameObject platform)
+    public IEnumerator Spawn()
     {
         while (true)
         {
@@ -31,9 +31,14 @@ public class PlatformSpawner : MonoBehaviour
             Vector3 spawnPos = spawner.transform.position;
             spawnPos.x += randomOffsetX;
 
+            // Choose a random platform prefab from the array
+            int randomIndex = Random.Range(0, platformPrefabs.Length);
+            GameObject platformToSpawn = platformPrefabs[randomIndex];
+
             yield return new WaitForSeconds(randomTime);
 
-            Instantiate(platform, spawnPos, spawner.transform.rotation);
+            // Instantiate the randomly chosen platform at the spawn position
+            Instantiate(platformToSpawn, spawnPos, spawner.transform.rotation);
         }
     }
 }

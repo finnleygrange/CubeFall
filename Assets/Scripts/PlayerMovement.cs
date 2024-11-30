@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody rb;
-    public float speed = 5f;
+    public float speed = 7.5f;
     public float jumpForce = 5f;
     bool isGrounded = false;
     public Animator jumpSpin;
-   
+    
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             jumpSpin.Rebind();
             jumpSpin.Update(0f);
+            transform.SetParent(collision.gameObject.transform);
         }
     }
 }
