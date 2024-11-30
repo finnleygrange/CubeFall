@@ -1,38 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlatformSpawner : MonoBehaviour
 {
     [SerializeField] GameObject spawner;
     [SerializeField] GameObject spawnerPrefab;
     [SerializeField] int offset = 10;
+    [SerializeField] float minSpawnTime = 0.25f;
+    [SerializeField] float maxSpawnTime = 1f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Spawn(2, spawnerPrefab));
-
+        StartCoroutine(Spawn(spawnerPrefab));
     }
 
-    // Update is called once per frame
     void Update()
     {
 
     }
 
-    public IEnumerator Spawn(float time, GameObject platform)
+    public IEnumerator Spawn(GameObject platform)
     {
         while (true)
         {
+            float randomTime = Random.Range(minSpawnTime, maxSpawnTime);
+
             float randomOffsetX = Random.Range(-offset, offset);
 
             Vector3 spawnPos = spawner.transform.position;
-            spawnPos.x = randomOffsetX;
+            spawnPos.x += randomOffsetX;
 
+            yield return new WaitForSeconds(randomTime);
 
-            yield return new WaitForSeconds(time);
             Instantiate(platform, spawnPos, spawner.transform.rotation);
         }
     }

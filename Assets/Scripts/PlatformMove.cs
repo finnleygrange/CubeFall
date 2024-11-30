@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlatformMove : MonoBehaviour
 {
 
+    [SerializeField] float moveSpeed = 3f;
+
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 20f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * 2 * Time.deltaTime);
+        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
     }
 }
